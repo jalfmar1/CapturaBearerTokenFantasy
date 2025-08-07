@@ -24,7 +24,8 @@ def get_latest_github_asset(repo, pattern):
         print(f"  ✖ ERROR al consultar {repo}: {e}")
     return None, None
 
-# Descargas estáticas (no cambian)
+
+# Descargas necesarias (solo ADB y frida-server)
 descargas = [
     {
         "carpeta": "platform-tools",
@@ -41,46 +42,6 @@ descargas = [
         "tipo": "xz"
     }
 ]
-
-# Descargas dinámicas (GitHub API)
-print("Buscando última versión de LSPosed...")
-lsposed_url, lsposed_name = get_latest_github_asset(
-    "LSPosed/LSPosed", r"zygisk-release\.zip$"
-)
-if lsposed_url:
-    descargas.append({
-        "carpeta": "lsposed",
-        "url": lsposed_url,
-        "nombre": lsposed_name,
-        "descomprimir": False,
-        "tipo": "zip"
-    })
-
-print("Buscando última versión de Riru...")
-riru_url, riru_name = get_latest_github_asset(
-    "RikkaApps/Riru", r"release\.zip$"
-)
-if riru_url:
-    descargas.append({
-        "carpeta": "riru",
-        "url": riru_url,
-        "nombre": riru_name,
-        "descomprimir": False,
-        "tipo": "zip"
-    })
-
-print("Buscando última versión de RootCloak...")
-rootcloak_url, rootcloak_name = get_latest_github_asset(
-    "devadvance/rootcloak", r"\.apk$"
-)
-if rootcloak_url:
-    descargas.append({
-        "carpeta": "rootcloak",
-        "url": rootcloak_url,
-        "nombre": rootcloak_name,
-        "descomprimir": False,
-        "tipo": "apk"
-    })
 
 def descargar(url, ruta_destino):
     print(f"Descargando {url} ...")

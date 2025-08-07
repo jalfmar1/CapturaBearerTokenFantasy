@@ -1,0 +1,9 @@
+frida-server*
+frida_capture.log
+.env.local
+*.apk
+*.zip
+*.bin
+*.dex
+*.log
+output/
