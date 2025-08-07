@@ -1,0 +1,8 @@
+id=riru-core
+name=Riru
+version=v26.1.7.r530.ab3086ec9f
+versionCode=530
+author=Rikka, yujincheng08
+description=Inject into zygote and run codes from "Riru" modules in apps or the system server. Support modules which use Riru API v24+.
+riruApi=26
+riruMinApi=24
